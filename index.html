@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit Converter</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <input type="radio" name="option" id="homeTab" checked>
+  <input type="radio" name="option" id="unitConvertTab">
+  <input type="radio" name="option" id="incomeTaxTab">
+  <input type="radio" name="option" id="factorialTab">
+  <input type="radio" name="option" id="payrollTab">
+
+  <div class="container">
+    <label for="homeTab"><div class="tab-name">Home</div></label>
+    <label for="unitConvertTab"><div class="tab-name">Unit Converter</div></label>
+    <label for="incomeTaxTab"><div class="tab-name">Income Tax Calculator</div></label>
+    <label for="factorialTab"><div class="tab-name">Factorial</div></label>
+    <label for="payrollTab"><div class="tab-name">Payroll</div></label>
+  </div>
+
+  <section class="card" id="homeSection">
+    <img class="profile-photo" src="profile.jpg" alt="Charry Hong">
+
+    <h1 class="profile-name">Charry Hong</h1>
+    <p>CS-1A</p>
+  </section>
+
+  <main class="card" id="unitConvertSection">
+    <h1>Unit Converter</h1> <br>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-mode="temp" role="tab">Temperature</button>
+      <button class="tab" data-mode="length" role="tab">Length</button>
+    </div>
+
+    <div class="row">
+      <label for="inputA" id="labelA">Celsius</label>
+      <div class="field">
+        <input type="number" id="inputA" inputmode="decimal" placeholder="0">
+        <span class="unit" id="unitA">°C</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <label for="inputB" id="labelB">Fahrenheit</label>
+      <div class="field">
+        <input type="number" id="inputB" inputmode="decimal" placeholder="32">
+        <span class="unit" id="unitB">°F</span>
+      </div>
+    </div>
+
+    <br>
+    <div class="buttons">
+      <button class="convert" id="convert">Convert</button>
+      <button class="clear" id="clear">Clear</button>
+    </div>
+  </main>
+
+  <section class="card" id="incomeTaxSection">
+    <h1>Income Tax Calculator</h1> <br>
+
+    <div class="row">
+      <label for="taxIncome">Taxable Income</label>
+      <div class="field">
+        <span class="unit prefix">₱</span>
+        <input type="number" id="taxIncome" inputmode="decimal" min="0" step="0.01" placeholder="320000">
+      </div>
+    </div>
+
+    <p class="formula" id="taxMessage" aria-live="polite"></p>
+
+    <div class="buttons">
+      <button class="convert" id="taxCompute">Compute</button>
+      <button class="clear" id="taxClear">Clear</button>
+    </div>
+
+    <div class="result" id="taxResult" hidden>
+      <div class="result-row"><span>Bracket</span><span id="taxBracket"></span></div>
+      <div class="result-row"><span>Basic tax</span><span id="taxBasic"></span></div>
+      <div class="result-row"><span>Rate</span><span id="taxRate"></span></div>
+      <div class="result-row"><span id="taxExcessLabel">Excess</span><span id="taxExcess"></span></div>
+      <div class="result-row result-total"><span>Income Tax</span><span id="taxTotal"></span></div>
+    </div>
+  </section>
+
+  <section class="card" id="factorialSection">
+    <h1>Factorial, Sum &amp; Average</h1>
+    <p class="sub">Enter N to get N!, 1 + 2 + ... + N, and their average.</p>
+
+    <div class="row">
+      <label for="factInput">Value of N</label>
+      <div class="field">
+        <input type="number" id="factInput" inputmode="numeric" min="1" max="100" step="1" placeholder="5">
+      </div>
+    </div>
+
+    <p class="formula" id="factMessage" aria-live="polite"></p>
+
+    <div class="buttons">
+      <button class="convert" id="factCompute">Compute</button>
+      <button class="clear" id="factClear">Clear</button>
+    </div>
+
+    <div class="result" id="factResult" hidden>
+      <div class="result-row"><span>Factorial (while loop)</span><span id="factValue"></span></div>
+      <div class="result-row"><span>Sum (do-while loop)</span><span id="sumValue"></span></div>
+      <div class="result-row"><span>Average (for loop)</span><span id="avgValue"></span></div>
+    </div>
+  </section>
+
+  <section class="card" id="payrollSection">
+    <h1>Payroll</h1>
+    <p class="sub">Add employees to the payroll list, or delete a line by its number.</p>
+
+    <div class="payroll-form">
+      <div class="row">
+        <label for="payName">Employee Name</label>
+        <div class="field">
+          <input type="text" id="payName" placeholder="Charry Hong">
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="payDays">Days Worked</label>
+        <div class="field">
+          <input type="number" id="payDays" inputmode="decimal" min="0" step="any" placeholder="20">
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="payRate">Daily Rate</label>
+        <div class="field">
+          <span class="unit prefix">₱</span>
+          <input type="number" id="payRate" inputmode="decimal" min="0" step="any" placeholder="500">
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="payDeduction">Deduction Amount</label>
+        <div class="field">
+          <span class="unit prefix">₱</span>
+          <input type="number" id="payDeduction" inputmode="decimal" min="0" step="any" placeholder="1000">
+        </div>
+      </div>
+    </div>
+
+    <p class="formula" id="payMessage" aria-live="polite"></p>
+
+    <div class="buttons">
+      <button class="convert" id="payAdd">Add Employee</button>
+      <button class="clear" id="payClear">Clear Form</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="payroll-table">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Employee Name</th>
+            <th>Days Worked</th>
+            <th>Daily Rate</th>
+            <th>Gross Pay</th>
+            <th>Deduction Amount</th>
+            <th>Net Pay</th>
+          </tr>
+        </thead>
+        <tbody id="payrollBody">
+          <!-- Rows are added by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row delete-block">
+      <label for="payDeleteLine">Line No. to Delete</label>
+      <div class="delete-row">
+        <div class="field">
+          <input type="number" id="payDeleteLine" inputmode="numeric" min="1" step="1" placeholder="1">
+        </div>
+        <button class="clear" id="payDelete">Delete</button>
+      </div>
+    </div>
+
+    <p class="formula" id="payDeleteMessage" aria-live="polite"></p>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>
